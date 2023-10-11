@@ -1,5 +1,10 @@
 package models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author Quinn Birdsley
@@ -7,7 +12,11 @@ package models;
  * CIS175 - Fall 2021
  * Oct 10, 2023
  */
+@Entity(name="DigitalLibrary")
+@Table(name="DigitalLibrary")
 public class Library {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String title;
 	private String type;
