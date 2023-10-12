@@ -16,7 +16,7 @@ import models.Library;
 public class LibraryHelper {
 	EntityManagerFactory factory = Persistence.createEntityManagerFactory("DigitalLibrary");
 
-	public void persist(Library model) {
+	public void insertTitle(Library model) {
 		EntityManager manager = factory.createEntityManager();
 		manager.getTransaction().begin();
 		manager.persist(model);

@@ -34,7 +34,7 @@ public class insertTitle extends HttpServlet {
 		LibraryHelper helper = new LibraryHelper();
 		l.setTitle(request.getParameter("Title"));
 		l.setType(request.getParameter("Type"));
-		helper.persist(l);
+		helper.insertTitle(l);
 		getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 		
 	}
