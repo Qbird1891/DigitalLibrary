@@ -11,13 +11,11 @@ import models.Library;
 
 /**
  * @author Itsal - Quinn Birdsley
- * @author Evan Burnell
- * CIS175 - Fall 2023
- * Oct 11, 2023
+ * @author Evan Burnell CIS175 - Fall 2023 Oct 11, 2023
  */
 public class LibraryHelper {
 	EntityManagerFactory factory = Persistence.createEntityManagerFactory("DigitalLibrary");
-	
+
 	public void persist(Library model) {
 		EntityManager manager = factory.createEntityManager();
 		manager.getTransaction().begin();
@@ -25,9 +23,8 @@ public class LibraryHelper {
 		manager.getTransaction().commit();
 		manager.close();
 	}
-	
-	
-	//deleting title
+
+	// deleting title
 	public void deleteTitle(Library model) {
 		EntityManager manager = factory.createEntityManager();
 		manager.getTransaction().begin();
@@ -35,7 +32,8 @@ public class LibraryHelper {
 		manager.getTransaction().commit();
 		manager.close();
 	}
-	//updating an entry
+
+	// updating an entry
 	public void update(Library model) {
 		EntityManager manager = factory.createEntityManager();
 		Library dbEntity = manager.find(Library.class, model.getId());
@@ -45,6 +43,7 @@ public class LibraryHelper {
 		manager.getTransaction().commit();
 		manager.close();
 	}
+
 	// returns all titles
 	public List<Library> showAllTitles() {
 		EntityManager manager = factory.createEntityManager();
@@ -53,27 +52,32 @@ public class LibraryHelper {
 		manager.close();
 		return allTitles;
 	}
-	//search by id number
+
+	// search by id number
 	public Library searchForItemById(int oldId) {
 		EntityManager manager = factory.createEntityManager();
-		TypedQuery<Library> query = manager.createQuery("SELECT i FROM digitallibrary AS i WHERE i.id = :id", Library.class);
+		TypedQuery<Library> query = manager.createQuery("SELECT i FROM digitallibrary AS i WHERE i.id = :id",
+				Library.class);
 		query.setParameter("id", oldId);
 		Library dbEntity = query.getSingleResult();
 		return dbEntity;
 	}
-	//search by title
+
+	// search by title
 	public Library searchForItemByTitle(String oldTitle) {
 		EntityManager manager = factory.createEntityManager();
-		TypedQuery<Library> query = manager.createQuery("SELECT i FROM digitallibrary AS i WHERE i.title = :title", Library.class);
+		TypedQuery<Library> query = manager.createQuery("SELECT i FROM digitallibrary AS i WHERE i.title = :title",
+				Library.class);
 		query.setParameter("title", oldTitle);
 		Library dbEntity = query.getSingleResult();
 		return dbEntity;
 	}
-	
-	//search by type
+
+	// search by type
 	public Library searchForItemByType(String oldType) {
 		EntityManager manager = factory.createEntityManager();
-		TypedQuery<Library> query = manager.createQuery("SELECT i FROM digitallibrary AS i WHERE i.type = :type", Library.class);
+		TypedQuery<Library> query = manager.createQuery("SELECT i FROM digitallibrary AS i WHERE i.type = :type",
+				Library.class);
 		query.setParameter("type", oldType);
 		Library dbEntity = query.getSingleResult();
 		return dbEntity;
