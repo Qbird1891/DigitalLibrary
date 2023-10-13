@@ -10,8 +10,6 @@
 <h1> Digital Library</h1>
      <a href="insertTitle.jsp">Insert Title</a>
      
-     <a href="updateTitle.jsp">Update Title</a>
-     
      <a href="deleteTitle.jsp">Delete Title</a>
      
      <a href="SearchByID.jsp">Search by ID #</a>
@@ -20,8 +18,8 @@
      
      <a href="SearchByType.jsp">Search by Item Type</a> 
 
-     <form action="showAll" method="get">
-           <input type="submit" value="showAll" />
+     <form action="showAllTitles" method="get">
+           <input type="submit" value="showAllTitles" />
      </form>
 </body>
 </html>

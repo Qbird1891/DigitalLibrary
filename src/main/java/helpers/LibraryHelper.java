@@ -48,37 +48,37 @@ public class LibraryHelper {
 	public List<Library> showAllTitles() {
 		EntityManager manager = factory.createEntityManager();
 		@SuppressWarnings("unchecked")
-		List<Library> allTitles = manager.createQuery("SELECT i FROM digitallibrary i").getResultList();
+		List<Library> allTitles = manager.createQuery("SELECT i FROM DigitalLibrary i").getResultList();
 		manager.close();
 		return allTitles;
 	}
 
 	// search by id number
-	public Library searchForItemById(int oldId) {
+	public Library searchForItemById(int id) {
 		EntityManager manager = factory.createEntityManager();
-		TypedQuery<Library> query = manager.createQuery("SELECT i FROM digitallibrary AS i WHERE i.id = :id",
+		TypedQuery<Library> query = manager.createQuery("SELECT i FROM DigitalLibrary AS i WHERE i.id = :id",
 				Library.class);
-		query.setParameter("id", oldId);
+		query.setParameter("id", id);
 		Library dbEntity = query.getSingleResult();
 		return dbEntity;
 	}
 
 	// search by title
-	public Library searchForItemByTitle(String oldTitle) {
+	public Library searchForItemByTitle(String title) {
 		EntityManager manager = factory.createEntityManager();
-		TypedQuery<Library> query = manager.createQuery("SELECT i FROM digitallibrary AS i WHERE i.title = :title",
+		TypedQuery<Library> query = manager.createQuery("SELECT i FROM DigitalLibrary AS i WHERE i.title = :title",
 				Library.class);
-		query.setParameter("title", oldTitle);
+		query.setParameter("title", title);
 		Library dbEntity = query.getSingleResult();
 		return dbEntity;
 	}
 
 	// search by type
-	public Library searchForItemByType(String oldType) {
+	public Library searchForItemByType(String type) {
 		EntityManager manager = factory.createEntityManager();
-		TypedQuery<Library> query = manager.createQuery("SELECT i FROM digitallibrary AS i WHERE i.type = :type",
+		TypedQuery<Library> query = manager.createQuery("SELECT i FROM DigitalLibrary AS i WHERE i.type = :type",
 				Library.class);
-		query.setParameter("type", oldType);
+		query.setParameter("type", type);
 		Library dbEntity = query.getSingleResult();
 		return dbEntity;
 	}

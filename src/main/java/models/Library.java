@@ -9,7 +9,7 @@ import javax.persistence.Table;
 /**
  * @author Quinn Birdsley
  * @author Evan Burnell
- * CIS175 - Fall 2021
+ * CIS175 - Fall 2023
  * Oct 10, 2023
  */
 @Entity(name="DigitalLibrary")
